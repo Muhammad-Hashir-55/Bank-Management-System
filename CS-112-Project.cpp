@@ -3,6 +3,7 @@
 using namespace std;
 int main() 
 {
+    cout <<"welcome to our bank management system"<<endl;
 
     int balance = 45000;
     int depositamount;
