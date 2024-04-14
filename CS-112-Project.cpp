@@ -2,6 +2,7 @@
 using namespace std;
 int main() 
 {
+    
     int balance = 45000;
     int depositamount;
     cout <<"this is just testing the output and publishing this file for github repository"<<endl;
