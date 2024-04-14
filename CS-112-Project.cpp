@@ -2,7 +2,7 @@
 using namespace std;
 int main() 
 {
-    
+
     int balance = 45000;
     int depositamount;
     cout <<"this is just testing the output and publishing this file for github repository"<<endl;
@@ -20,6 +20,8 @@ int main()
         cin>>depositamount;
         cout <<"your new balance is "<<balance + depositamount<<endl;
 
+
     }
+    cout <<"this line will be printed by default"<<endl;
 return 0;
 }
