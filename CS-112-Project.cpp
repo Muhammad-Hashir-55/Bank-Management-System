@@ -76,9 +76,11 @@ class Bank{
 };
 
 int main(){
+	// greeting message
  cout <<"welcome to our Banking System "<<endl;
+ // creating bank object named b
 	Bank b;
-
+// calling choice function
 	b.choice();
 
 	return 0;
@@ -272,7 +274,7 @@ void Bank::update(){
 		cout<<"Cash: "<<person[i].cash<<endl;
 
 		cout<<"\nEnter new data"<<endl;
-//comment asking name
+
 		cout<<"Enter name: ";
 
 	cin>>person[i].name;
