@@ -272,7 +272,7 @@ void Bank::update(){
 		cout<<"Cash: "<<person[i].cash<<endl;
 
 		cout<<"\nEnter new data"<<endl;
-
+//comment asking name
 		cout<<"Enter name: ";
 
 	cin>>person[i].name;
