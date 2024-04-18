@@ -34,8 +34,7 @@
 #include<windows.h>
 
 using namespace std;
-// making a class named bank
-// new comment 
+// making a class named bank thank you
 class Bank{
 
 	private: 
