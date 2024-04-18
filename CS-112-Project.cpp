@@ -76,7 +76,7 @@ class Bank{
 };
 
 int main(){
-
+ cout <<"welcome to our Banking System "<<endl;
 	Bank b;
 
 	b.choice();
