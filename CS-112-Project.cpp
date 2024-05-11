@@ -29,23 +29,7 @@ public:
 
 // named as bank
 // making
-class Bank{
 
-public:
-    int total;
-
-    string id;
-
-    struct person
-    {
-
-        string name, ID, address;
-
-        int contact, cash;
-
-    } person[100];
-
-public:
     Bank()
     {
 
@@ -95,7 +79,3 @@ void define(){
     cout<<  "______________________________"<<endl;
     cout << "Select how you want to login ." << endl;
 }
-=======
-    void del();
-};
->>>>>>> 36231cac55332aac6fed93c0f1ebdf5d2a8afc9a
