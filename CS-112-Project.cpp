@@ -7,6 +7,7 @@
 using namespace std;
 // creating a big parent class
 // named as bank
+// making
 class Bank
 {
 
