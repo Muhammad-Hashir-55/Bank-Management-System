@@ -1,6 +1,9 @@
+
 #include <iostream>
 
 #include <conio.h>
+
+
 
 #include <windows.h>
 
@@ -9,6 +12,24 @@ using namespace std;
 
 class Bank
 {
+
+public:
+    int total;
+
+    string id;
+
+    struct person
+    {
+
+        string name, ID, address;
+
+        int contact, cash;
+
+    } person[100];
+
+// named as bank
+// making
+class Bank{
 
 public:
     int total;
@@ -39,8 +60,9 @@ public:
 
     void search();
 
-    void del();}
-	;
+
+    void del();
+	};
 class Admin : public Bank
 {
 public:
@@ -73,3 +95,7 @@ void define(){
     cout<<  "______________________________"<<endl;
     cout << "Select how you want to login ." << endl;
 }
+=======
+    void del();
+};
+>>>>>>> 36231cac55332aac6fed93c0f1ebdf5d2a8afc9a
