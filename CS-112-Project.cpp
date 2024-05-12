@@ -40,7 +40,7 @@ public:
     void search();
 
     void del();
-// making one pure virtual function to  implement  polymorphism
+
     virtual void login()=0;
 
     
