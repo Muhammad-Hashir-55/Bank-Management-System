@@ -2,8 +2,6 @@
 
 #include <conio.h>
 
-
-
 #include <windows.h>
 
 using namespace std;
@@ -26,9 +24,7 @@ public:
 
     } person[100];
 
-// named as bank
-// making
-
+public:
     Bank()
     {
 
@@ -43,20 +39,34 @@ public:
 
     void search();
 
-
     void del();
-	};
+// making one pure virtual function to  implement  polymorphism
+    virtual void login()=0;
+
+    
+};
 class Admin : public Bank
 {
 public:
+void login(){
+cout<<" Welcome Admin"<<endl;  
+    }
 };
 class employee : public Bank
 {
 public:
+void login(){
+    cout<<" Welcome Employee"<<endl;
+  
+    }
 };
 class User : public Bank
 {
 public:
+void login(){
+    cout<<" Welcome user "<<endl;
+        
+    }
     void transactions();
 };
 void welcome(){
@@ -78,10 +88,12 @@ void define(){
     cout<<  "______________________________"<<endl;
     cout << "Select how you want to login ." << endl;
 }
+
 int main()
 {
     // creating user object for our first customer
     User u1;
+    Admin a1;
     // greeting message
    welcome();
     
@@ -92,7 +104,8 @@ loginselection:
     define();
     cin >> choice;
     if (choice == 1)
-    {
+    {   
+        a1.login();
         int insidechoice;
         string username, password;
         username = "hashir";
@@ -116,7 +129,7 @@ loginselection:
             getline(cin, enpassword);
         }
         cout << "Login successful  " << endl;
-        Admin a1;
+        
         char ch;
 
         while (1)
@@ -148,7 +161,7 @@ loginselection:
 
                 if (u1.total == 0)
                 {
-
+                    
                     cout << "No data is entered" << endl;
                 }
                 else
@@ -217,6 +230,7 @@ loginselection:
     if (choice == 2)
     {
         employee e1;
+        e1.login();
         string username, password;
         username = "employee";
         password = "secret";
@@ -288,6 +302,23 @@ loginselection:
             if (u1.total == 0)
             {
                 cout << "no such data entries" << endl;
+                  cout << "Do you want to go to the Employee screen?" << endl;
+                cout << "Choose 1 for yes" << endl;
+                cout << "Choose any other number to terminate the program" << endl;
+                cin >> insidechoice;
+                if (insidechoice == 1)
+                {
+                    goto employeeselection;
+                }
+                else
+                {
+                    cout << "Exiting the program...." << endl;
+                    cout << "Please wait " << endl;
+                    cout << endl;
+                    cout << endl;
+                }
+
+
             }
             else
             {
@@ -316,6 +347,22 @@ loginselection:
             if (u1.total == 0)
             {
                 cout << "no such data entries" << endl;
+
+                  cout << "Do you want to go to the Employee screen?" << endl;
+                cout << "Choose 1 for yes" << endl;
+                cout << "Choose any other number to terminate the program" << endl;
+                cin >> insidechoice;
+                if (insidechoice == 1)
+                {
+                    goto employeeselection;
+                }
+                else
+                {
+                    cout << "Exiting the program...." << endl;
+                    cout << "Please wait " << endl;
+                    cout << endl;
+                    cout << endl;
+                }
             }
             else
             {
@@ -345,7 +392,8 @@ loginselection:
         }
     }
     if (choice == 3)
-    {
+    {   
+        u1.login();
         cout << "choose your Desired option" << endl;
         cout << "Either you want to log in as an old customer or create a new account" << endl;
         int insidechoice;
@@ -358,7 +406,7 @@ loginselection:
             if (u1.total == 0)
             {
                 cout << "No data is entered" << endl;
-                cout << "Do you want to go back to the Employee screen?" << endl;
+                cout << "Do you want to go back to the main login screen?" << endl;
                 cout << "Choose 1 for yes" << endl;
                 cout << "Choose any other number to terminate the program" << endl;
                 cin >> insidechoice;
@@ -614,5 +662,165 @@ void Bank::search()
 
             cout << "No such record found" << endl;
         }
+    }
+}
+
+void User::transactions()
+{
+
+    int cash;
+
+    char ch;
+
+    cout << "Enter id of for additional security for you want to transaction" << endl;
+
+    cin >> id;
+
+    for (int i = 0; i < total; i++)
+    {
+
+        if (id == person[i].ID)
+        {
+
+            cout << "Name: " << person[i].name << endl;
+
+            cout << "Address: " << person[i].address << endl;
+
+            cout << "Contact: " << person[i].contact << endl;
+
+            cout << "\nExisting Cash " << person[i].cash << endl;
+
+            cout << "Press 1 to deposit" << endl;
+
+            cout << "Press 2 to withdraw" << endl;
+
+            ch = getch();
+
+            switch (ch)
+            {
+
+            case '1':
+
+                cout << "How much cash you want to deposit??" << endl;
+
+                cin >> cash;
+
+                person[i].cash += cash;
+
+                cout << "Your new cash is " << person[i].cash << endl;
+
+                break;
+
+            case '2':
+
+            back:
+
+                cout << "How much cash you want to withdraw??" << endl;
+
+                cin >> cash;
+
+                if (cash > person[i].cash)
+                {
+
+                    cout << "Your existing cash is just " << person[i].cash << endl;
+
+                    Sleep(3000);
+
+                    goto back;
+                }
+
+                person[i].cash -= cash;
+
+                cout << "Your new cash is " << person[i].cash << endl;
+
+                break;
+
+            default:
+
+                cout << "Invalid input" << endl;
+
+                break;
+            }
+
+            break;
+        }
+
+        if (i == total - 1)
+        {
+
+            cout << "No such record found" << endl;
+        }
+    }
+}
+
+void Bank::del()
+{
+
+    char ch;
+
+    cout << "Press 1 to remove specific record" << endl;
+
+    cout << "Press 2 to remove full record" << endl;
+
+    ch = getch();
+
+    switch (ch)
+    {
+
+    case '1':
+
+        cout << "Enter id those data you want to remove" << endl;
+
+        cin >> id;
+
+        for (int i = 0; i < total; i++)
+        {
+
+            if (id == person[i].ID)
+            {
+
+                for (int j = i; j < total; j++)
+                {
+
+                    person[j].name = person[j + 1].name;
+
+                    person[j].ID = person[j + 1].ID;
+
+                    person[j].address = person[j + 1].address;
+
+                    person[j].contact = person[j + 1].contact;
+
+                    person[j].cash = person[j + 1].cash;
+
+                    total--;
+
+                    cout << "Your required data is deleted" << endl;
+
+                    break;
+                }
+            }
+
+            if (i = total - 1)
+            {
+
+                cout << "No such record found" << endl;
+            }
+        }
+
+        break;
+
+    case '2':
+
+        total = 0;
+
+        cout << "All record is deleted" << endl;
+
+        break;
+
+    default:
+
+        cout << "Invalid Input" << endl;
+
+        break;
     }
 }
