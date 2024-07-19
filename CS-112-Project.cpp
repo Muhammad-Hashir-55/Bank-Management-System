@@ -20,7 +20,6 @@ public:
 
     struct person
     {
-
         string name, ID, address;
 
         int contact, cash;
@@ -68,7 +67,7 @@ void welcome(){
     cout<<"* * * *    *         *          **         *   *       *     *     *"<<endl;
     cout<<"*     *    *******   *******       ***       *         *     *     *******"<<endl;
     cout<<"___________________________________________________________________________"<<endl;
-    cout<<endl<<"To our Bank"<<endl;
+    cout<<endl<<"To Our Banking System"<<endl;
 
 }
 void define(){
